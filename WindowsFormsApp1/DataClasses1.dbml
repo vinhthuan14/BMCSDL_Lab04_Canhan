@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QLSV_Lab04" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=LAPTOP-FRHKQJ00;Initial Catalog=QLSV_Lab04;Integrated Security=True" SettingsObjectName="WindowsFormsApp1.Properties.Settings" SettingsPropertyName="QLSV_Lab04ConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.LOP" Member="LOPs">
+    <Type Name="LOP">
+      <Column Name="MALOP" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TENLOP" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="MANV" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SINHVIEN" Member="SINHVIENs">
+    <Type Name="SINHVIEN">
+      <Column Name="MASV" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="HOTEN" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="NGAYSINH" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DIACHI" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="MALOP" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="TENDN" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="MATKHAU" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NHANVIEN" Member="NHANVIENs">
+    <Type Name="NHANVIEN">
+      <Column Name="MANV" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="HOTEN" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="EMAIL" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="LUONG" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TENDN" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="MATKHAU" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Function Name="dbo.SP_INS_ENCRYPT_NHANVIEN" Method="SP_INS_ENCRYPT_NHANVIEN">
+    <Parameter Name="MANV" Parameter="mANV" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="HOTEN" Parameter="hOTEN" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="EMAIL" Parameter="eMAIL" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="LUONG" Parameter="lUONG" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="TENDN" Parameter="tENDN" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="MATKHAU" Parameter="mATKHAU" Type="System.String" DbType="VarChar(MAX)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SP_SEL_NHANVIEN" Method="SP_SEL_NHANVIEN">
+    <ElementType Name="SP_SEL_NHANVIENResult">
+      <Column Name="MANV" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="HOTEN" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="EMAIL" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="LUONG" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_INS_ENCRYPT_SINHVIEN" Method="SP_INS_ENCRYPT_SINHVIEN">
+    <Parameter Name="MASV" Parameter="mASV" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="HOTEN" Parameter="hOTEN" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="NGAYSINH" Parameter="nGAYSINH" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="DIACHI" Parameter="dIACHI" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="MALOP" Parameter="mALOP" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="TENDN" Parameter="tENDN" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="MATKHAU" Parameter="mATKHAU" Type="System.String" DbType="VarChar(32)" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>
